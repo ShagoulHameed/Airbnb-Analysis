@@ -86,3 +86,4 @@ In conclusion, the Airbnb Analysis project successfully provided valuable insigh
 ### Key Takeaways
 
 The project facilitated learning outcomes in MongoDB Atlas, Streamlit, Python data analysis, geospatial analysis, and data visualization techniques. It enhanced problem-solving and data-driven decision-making skills.
+[LInkedIN](https://www.linkedin.com/in/shagoul-hameed/) 
