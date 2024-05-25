@@ -55,7 +55,7 @@ def show_home():
         **Expansion**: The company is exploring further expansions into new markets and services, such as long-term stays and business travel accommodations.
     """)
 
-# Function to display the About section
+
 def show_about():
     st.header("ABOUT THIS PROJECT")
     
@@ -104,9 +104,9 @@ def show_about():
         Develop dynamic and interactive visualizations to allow users to filter and drill down into the data based on their preferences. Enable users to interact with the visualizations to explore specific regions, property types, or time periods of interest.
     """)
     
-    st.subheader("10. Dashboard Creation using Tableau or Power BI")
+    st.subheader("10. Dashboard Creation using  Power BI")
     st.write("""
-        Build a comprehensive dashboard using Tableau or Power BI, combining various visualizations to present key insights from the analysis. Provide a holistic view of the Airbnb dataset and its patterns.
+        Build a comprehensive dashboard using  Power BI, combining various visualizations to present key insights from the analysis. Provide a holistic view of the Airbnb dataset and its patterns.
     """)
 
 warnings.filterwarnings("ignore")
@@ -194,14 +194,15 @@ if selected_option == "Data Exploration":
         property_type_a = st.selectbox("Select the Property Type", availability_df["property_type"].unique(), key="property_type_a")
         property_availability_df = availability_df[availability_df["property_type"] == property_type_a]
         
-        room_type_a = st.selectbox("Select the Room Type", property_availability_df["room_type"].unique(), key="room_type_a")
-        room_availability_df = property_availability_df[property_availability_df["room_type"] == room_type_a]
+        #room_type_a = st.selectbox("Select the Room Type", property_availability_df["room_type"].unique(), key="room_type_a")
+        #room_availability_df = property_availability_df[property_availability_df["room_type"] == room_type_a]
 
         col1, col2 = st.columns(2)
 
         with col1:
             for period in ["availability_30", "availability_60"]:
                 fig_sunburst = px.sunburst(property_availability_df, path=["room_type", "bed_type", "is_location_exact"], values=period,
+                #fig_sunburst = px.sunburst(room_availability_df, path=["room_type", "bed_type", "is_location_exact"], values=period,                           
                                         width=600, height=500, title=f"{period.replace('_', ' ').title()}", color_discrete_sequence=px.colors.sequential.Peach_r)
                 st.plotly_chart(fig_sunburst)
         
@@ -211,8 +212,8 @@ if selected_option == "Data Exploration":
                                         width=600, height=500, title=f"{period.replace('_', ' ').title()}", color_discrete_sequence=px.colors.sequential.Agsunset)
                 st.plotly_chart(fig_sunburst)
 
-        #room_type_a = st.selectbox("Select the Room Type", property_availability_df["room_type"].unique(), key="room_type_a")
-        #room_availability_df = property_availability_df[property_availability_df["room_type"] == room_type_a]
+        room_type_a = st.selectbox("Select the Room Type", property_availability_df["room_type"].unique(), key="room_type_a")
+        room_availability_df = property_availability_df[property_availability_df["room_type"] == room_type_a]
         
         availability_response_df = room_availability_df.groupby("host_response_time")[["availability_30", "availability_60", "availability_90", "availability_365", "price"]].sum().reset_index()
         
