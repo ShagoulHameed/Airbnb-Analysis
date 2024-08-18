@@ -119,7 +119,7 @@ st.title("Airbnb Data Analysis")
 def load_data(filepath):
     return pd.read_csv(filepath)
 
-df = load_data("C:/Users/HameedS/Desktop/New folder/Airbnbfinal.csv")
+df = load_data("Airbnbfinal.csv")
 
 with st.sidebar:
     selected_option = option_menu("Main Menu", ["Home", "Data Exploration", "About"])
