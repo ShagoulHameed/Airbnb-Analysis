@@ -7,7 +7,7 @@ from PIL import Image
 
 
 def show_home():
-    image = Image.open("C:/Users/HameedS/Desktop/New folder/images.jpg")
+    image = Image.open("images.jpg")
     st.image(image)
     
     st.header("About Airbnb")
